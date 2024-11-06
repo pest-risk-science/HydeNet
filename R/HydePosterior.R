@@ -68,7 +68,7 @@ HydeSim <- function(cHN, variable.names, n.iter, thin=1, ...,
   if (monitor_observed)
   {
     variable.names <- 
-      if (class(cHN[["jags"]]) == "jags")
+      if (inherits(cHN[["jags"]],"jags"))
       {
         unique(c(variable.names, names(cHN$observed)))
       }
@@ -80,7 +80,7 @@ HydeSim <- function(cHN, variable.names, n.iter, thin=1, ...,
     
   
   
-  if (class(cHN$jags) == "jags")
+  if (inherits(cHN$jags,"jags"))
   {
     codas <- rjags::coda.samples(model = cHN[["jags"]], 
                           variable.names = variable.names, 
