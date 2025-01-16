@@ -86,11 +86,12 @@ print.HydeNetwork <- function(x, ...)
     {
       nodeType <- paste0(nodeType, "(", nodeParam, ")")
     }
-    
-    Formula <- paste0(x[["nodeFitter"]][[node]], ": ", 
-                      deparse(x[["nodeFormula"]][[node]]) %>%
-                        trimws() %>%
-                        paste0(collapse = " "))
+    Formula <- formatNode(x[["nodeFitter"]][[node]], x[["nodeFormula"]][[node]])
+    # 
+    # Formula <- paste0(x[["nodeFitter"]][[node]], ": ", 
+    #                   deparse(x[["nodeFormula"]][[node]]) %>%
+    #                     trimws() %>%
+    #                     paste0(collapse = " "))
    
     return(paste(nodeName, nodeType, Formula, sep="\n"))
   }
@@ -111,3 +112,24 @@ print.HydeNetwork <- function(x, ...)
             }))
   cat(paste0("\n\n", nodeSummaries, "\n"))
 }
+
+#' @name formatNode
+#' 
+#' @param fitter fitter use for formula.
+#' @param formula formula use to define node in network.
+#' @title Helper function for formatting nodeFitter and nodeFormula.
+#' @description Helper function for formatting nodeFitter and nodeFormula to ensure consistent behaviour.
+
+
+formatNode <- function(fitter, formula) {
+  fitter_str <- if (is.function(fitter)) {
+    deparse(substitute(fitter))
+  } else {
+    as.character(fitter)
+  }
+  formula_str <- deparse(formula) %>%
+    trimws() %>%
+    paste0(collapse = " ")
+  paste0(fitter_str, ": ", formula_str)
+}
+
