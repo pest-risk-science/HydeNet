@@ -44,7 +44,7 @@
 
 print.HydeSim <- function(x, ...){
   n_distributions <- 
-    if (class(x$codas) == "mcmc.list")
+    if (inherits(x$codas,"mcmc.list"))
     {
       1 
     }
@@ -54,7 +54,7 @@ print.HydeSim <- function(x, ...){
     }
   
   n_chains <- 
-    if (class(x[["codas"]]) == "mcmc.list")
+    if (inherits(x[["codas"]],"mcmc.list"))
     {
       length(x[["codas"]]) 
     }
@@ -64,7 +64,7 @@ print.HydeSim <- function(x, ...){
     }
   
   n_iterations <- 
-    if (class(x[["codas"]]) == "mcmc.list") 
+    if (inherits(x[["codas"]], "mcmc.list")) 
     {
       nrow(x[["codas"]][[1]]) 
     }

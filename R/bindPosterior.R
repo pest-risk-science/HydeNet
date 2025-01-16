@@ -50,7 +50,7 @@
 #' 
 bindSim <- function(hydeSim, relabel_factor=TRUE)
 {
-  if (class(hydeSim$codas) == "mcmc.list")
+  if (inherits(hydeSim$codas,"mcmc.list"))
   {
     bound <- 
       do.call("rbind",

@@ -9,8 +9,6 @@
 \alias{inputCPT.list}
 \title{Compute a conditional probability table for a factor given other factors}
 \usage{
-cpt(x, data, wt, ...)
-
 \method{cpt}{formula}(formula, data, wt, ...)
 
 \method{cpt}{list}(x, data, wt, ...)
@@ -22,8 +20,8 @@ inputCPT(x, factorLevels, reduce = TRUE, ...)
 \method{inputCPT}{list}(x, factorLevels, reduce = TRUE, ...)
 }
 \arguments{
-\item{x}{a list containing the names of the variables used to compute 
-the conditional probability table. See details.}
+\item{formula}{a formula specifying the relationship between the dependent and
+independent variables.}
 
 \item{data}{a data frame containing all the factors represented by the \code{formula}
 parameter.}
@@ -32,8 +30,8 @@ parameter.}
 
 \item{...}{Additional arguments to be passed to other methods.}
 
-\item{formula}{a formula specifying the relationship between the dependent and
-independent variables.}
+\item{x}{a list containing the names of the variables used to compute 
+the conditional probability table. See details.}
 
 \item{factorLevels}{(optional) a named list with the following structure: 
 Variable names for the factors specified in \code{vars} comprise the names

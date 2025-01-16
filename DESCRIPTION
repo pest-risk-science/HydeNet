@@ -33,7 +33,8 @@ Imports:
     rjags,
     stats,
     stringr,
-    utils
+    utils,
+    rlang
 Suggests:
     knitr,
     RCurl,
@@ -47,3 +48,5 @@ LazyData: true
 URL: https://github.com/nutterb/HydeNet,
 BugReports: https://github.com/nutterb/HydeNet/issues
 RoxygenNote: 7.3.2
+Encoding: UTF-8
+

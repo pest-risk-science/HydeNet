@@ -1,5 +1,5 @@
 #' @name rewriteHydeFormula
-#' @importFrom dplyr group_by_
+#' @importFrom dplyr group_by
 #' @importFrom dplyr summarise
 #' @importFrom stats as.formula
 #' @importFrom stringr str_split_fixed
